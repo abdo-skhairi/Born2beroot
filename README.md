@@ -153,69 +153,110 @@ sudo crontab -u root -e
 ```
 ----
 
+Here’s a clean and visually appealing version of your commands with symbolic headings to structure them effectively for a GitHub README:
+
+---
+
+# ⚙️ **Server Setup Commands**
+
+## 🌐 **Install and Configure Lighttpd**  
+```bash
 # Install Lighttpd
 sudo apt install lighttpd
+
+# Allow HTTP traffic through the firewall
 sudo ufw allow 80
+```
 
-# Install MariaDB
+---
+
+## 🛢️ **Install and Configure MariaDB**  
+```bash
+# Install MariaDB server
 sudo apt install mariadb-server
+
+# Secure the installation
 sudo mysql_secure_installation
+
+# Create a new database
 CREATE DATABASE <db-name>;
+
+# Grant privileges to a user
 GRANT ALL ON <db-name>.* TO '<user>'@'localhost' IDENTIFIED BY '<password>';
+
+# Apply changes
 FLUSH PRIVILEGES;
+```
 
-# Install PHP
+---
+
+## 💻 **Install PHP**  
+```bash
+# Install PHP modules for CGI and MariaDB integration
 sudo apt install php-cgi php-mysql
+```
 
-# Install WordPress
+---
+
+## 📝 **Install and Configure WordPress**  
+```bash
+# Install wget if not already installed
 sudo apt install wget
+
+# Download WordPress
 sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
+
+# Extract the WordPress archive
 sudo tar -xzvf /var/www/html/latest.tar.gz -C /var/www/html
+
+# Remove the downloaded archive
 sudo rm /var/www/html/latest.tar.gz
+
+# Move WordPress files to the web root
 sudo cp /var/www/html/wordpress/* /var/www/html/
+
+# Remove leftover WordPress directory
 sudo rm -rf /var/www/html/wordpress
+
+# Create the configuration file
 sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+```
 
-# Configure Lighttpd for PHP
+---
+
+## 🛠️ **Configure Lighttpd for PHP**  
+```bash
+# Enable FastCGI and PHP modules for Lighttpd
 sudo lighty-enable-mod fastcgi fastcgi-php
-sudo service lighttpd force-reload
 
-# Install FTP (vsftpd)
+# Reload Lighttpd to apply changes
+sudo service lighttpd force-reload
+```
+
+---
+
+## 📡 **Install and Configure FTP (vsftpd)**  
+```bash
+# Install the FTP server
 sudo apt install vsftpd
+
+# Allow FTP traffic through the firewall
 sudo ufw allow 21
+
+# Open the vsftpd configuration file
 sudo vi /etc/vsftpd.conf
-# Enable write access and set FTP root
+
+# Enable write access and set FTP root directory
 sudo mkdir /home/<user>/ftp
 sudo chmod a-w /home/<user>/ftp
 user_sub_token=$USER
 local_root=/home/$USER/ftp
+
+# Add the user to the vsftpd user list
 echo <user> | sudo tee -a /etc/vsftpd.userlist
+```
 
-# Connect via FTP
-ftp <ip-address>
-----
-
-### Submission & Peer-Evaluation Guide for 1337/42 Students
-
-1. **Creating the Signature File**:
-   - At the root of your Git repository, create a `signature.txt` file.
-   - Include the virtual machine disk signature in sha1 format (e.g., from a `.vdi` or `.qcow2` file). Use the following steps depending on your OS:
-
-   **Windows**:
-   - Navigate to: `%HOMEDRIVE%%HOMEPATH%\VirtualBox VMs\`
-   - Execute the command: `certUtil -hashfile centos_serv.vdi sha1`
-
-   **Linux**:
-   - Navigate to: `~/VirtualBox VMs/`
-   - Execute the command: `sha1sum centos_serv.vdi`
-
-   **Mac M1**:
-   - Navigate to: `~/Library/Containers/com.utmapp.UTM/Data/Documents/`
-   - Execute the command: `shasum Centos.utm/Images/disk-0.qcow2`
-
-   **MacOS**:
-   - Navigate to: `~/VirtualBox VMs/`
-   - Execute the command: `shasum centos_serv.vdi`
+---
 
 2. **Evalknowledge.txt**:
    - Includes a Q&A section with things to check as an evaluator.
