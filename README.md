@@ -1,4 +1,4 @@
-![Alt text](https://github.com/username/repo-name/blob/main/images/myimage.jpg)
+![Alt text](https://raw.githubusercontent.com/abdo-skhairi/Born2beroot/refs/heads/main/preview.webp)
 
   🚀 **Born2beroot**  
 
