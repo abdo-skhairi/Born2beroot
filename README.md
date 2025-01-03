@@ -1,3 +1,5 @@
+![Alt text](https://github.com/username/repo-name/blob/main/images/myimage.jpg)
+
   🚀 **Born2beroot**  
 
 ## Table of Contents  
