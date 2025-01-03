@@ -343,6 +343,6 @@ echo <user> | sudo tee -a /etc/vsftpd.userlist
 #### **4. Evalknowledge.txt** 📄
 - Includes Q&A from the subject and evaluation checklist.
   
-#### **5. Additional Tips** 📝
+#### **5. Additional Tips** 📝💡
 - Repeat the installation process several times to reinforce your understanding, especially if this is your first experience with both Linux and virtualization.
 
