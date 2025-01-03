@@ -50,20 +50,21 @@
    - For 1337/42 Students  
 -----
 
-## Introduction  
+## Introduction  📘
 In this project, you'll create your first machine in VirtualBox (or UTM if VirtualBox is unavailable) following specific instructions. By the end, you'll be able to set up your own operating system while implementing strict guidelines.
 
-## What is a Virtual Machine?  
+## What is a Virtual Machine?  🖥️
 A Virtual Machine (VM) is a software environment that enables the installation of an operating system within itself, making it appear as if it is running on a physical computer. Virtual machines simulate physical devices such as CPU, memory, network interface, and storage, all powered by the host machine. The hypervisor is responsible for creating and managing VMs by isolating VM resources from the host system.
 
 ### Key Concepts:  
-- **Host Machine**: The physical device that provides hardware resources for the VM.  
-- **Guest Machine**: The virtualized environment running on the host machine.  
-- **Hypervisor**: The software managing and isolating VMs from system hardware.
+- **Host Machine**: The physical device that provides hardware resources for the VM.  🏠💻
+- **Guest Machine**: The virtualized environment running on the host machine.  🎛️🖥️
+- **Hypervisor**: The software managing and isolating VMs from system hardware. 🖧
 
 Benefits include running multiple OSs on a single machine, testing unstable programs safely, efficient resource sharing, cost reduction, and easy VM cloning across devices.
+-----
 
-## How do Virtual Machines Work?  
+## How do Virtual Machines Work?  🖥️
 Virtualization enables the sharing of a system's resources among multiple virtual environments. The hypervisor manages resource allocation between the host and guest machines. If a guest requires more resources, the hypervisor ensures the request is handled efficiently.
 
 ### Advantages:  
@@ -73,7 +74,7 @@ Virtualization enables the sharing of a system's resources among multiple virtua
 - Reduced physical infrastructure costs.  
 - Easy implementation and cloning of VMs.
 
-## What is LVM?  
+## What is LVM?  📦🔧
 LVM (Logical Volume Manager) is an abstraction layer between storage devices and file systems, providing greater flexibility for partition management. LVM allows partition resizing, expansion, and movement across physical disks without worrying about contiguous space.
 
 ### Key Concepts:  
@@ -81,17 +82,17 @@ LVM (Logical Volume Manager) is an abstraction layer between storage devices and
 - **Volume Group (VG)**: A virtual storage pool built from PVs.  
 - **Logical Volume (LV)**: The partitions created within VGs, used for file systems, swaps, or VMs.
 
-## What is AppArmor?  
+## What is AppArmor?  🛡️📜
 AppArmor is a security tool that uses Mandatory Access Control (MAC) to restrict what actions processes can perform. For instance, if an application tries to access the camera and the administrator denies this, AppArmor prevents it from doing so.
 
 ### Modes:  
 - **Enforce Mode**: Prevents restricted actions.  
 - **Complain Mode**: Logs restricted actions without blocking them.
 
-## Difference Between Apt and Aptitude  
+## Difference Between Apt and Aptitude  🔍
 APT (Advanced Package Tool) and Aptitude are both used for managing packages on Debian-based distributions. APT simplifies package installation and dependency management via command-line tools like `apt-get` and `apt-cache`. Aptitude, a graphical interface, offers better dependency control and allows users to choose between various dependencies.
 
-## How to Use SSH?  
+## How to Use SSH?  🛡️
 SSH (Secure Shell) enables secure remote administration of servers over the Internet. It uses encryption techniques to ensure that communication between the client and host is secure. 
 
 ### SSH Encryption Methods:  
@@ -102,20 +103,16 @@ SSH (Secure Shell) enables secure remote administration of servers over the Inte
 To connect, use the following command:  
 `ssh {username}@{IP_host} -p {port}`
 
-## How to Implement UFW with SSH  
+## How to Implement UFW 🔒 with SSH  🛡️
 UFW (Uncomplicated Firewall) simplifies firewall management by offering an interface for configuring iptables. Once installed, UFW can be used to control which ports are open or closed, enhancing security, especially when combined with SSH.
 
-## What is cron and What is wall?  
+## What is cron and What is wall?  ⏰🗓️
 - **Cron**: A Linux task manager that automates command execution at specified times. For example, scheduling a server restart daily at 4:00 AM.  
 - **Wall**: A command used by the root user to broadcast messages to all users logged into the system, useful for notifying of important system changes.
 
 ---
 
-Here’s the clean and visually enhanced version for GitHub with symbolic headings:  
-
----
-
-# 🛡️ **System Configuration Commands**
+# **System Configuration Commands**
 
 ## 🧑‍💻 **Install and Configure `sudo`**  
 ```bash
