@@ -92,7 +92,7 @@ AppArmor is a security tool that uses Mandatory Access Control (MAC) to restrict
 ## Difference Between Apt and Aptitude  🔍
 APT (Advanced Package Tool) and Aptitude are both used for managing packages on Debian-based distributions. APT simplifies package installation and dependency management via command-line tools like `apt-get` and `apt-cache`. Aptitude, a graphical interface, offers better dependency control and allows users to choose between various dependencies.
 
-## How to Use SSH?  🛡️
+## How to Use SSH?  🔒
 SSH (Secure Shell) enables secure remote administration of servers over the Internet. It uses encryption techniques to ensure that communication between the client and host is secure. 
 
 ### SSH Encryption Methods:  
@@ -103,7 +103,7 @@ SSH (Secure Shell) enables secure remote administration of servers over the Inte
 To connect, use the following command:  
 `ssh {username}@{IP_host} -p {port}`
 
-## How to Implement UFW 🔒 with SSH  🛡️
+## How to Implement UFW 🛡️ with SSH 🔒
 UFW (Uncomplicated Firewall) simplifies firewall management by offering an interface for configuring iptables. Once installed, UFW can be used to control which ports are open or closed, enhancing security, especially when combined with SSH.
 
 ## What is cron and What is wall?  ⏰🗓️
