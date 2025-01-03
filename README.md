@@ -316,38 +316,33 @@ local_root=/home/$USER/ftp
 # Add the user to the vsftpd user list
 echo <user> | sudo tee -a /etc/vsftpd.userlist
 ```
-
 ---
 
-### Submission & Peer-Evaluation Guide for 1337/42 Students
+### **Peer-Evaluation Guide for 1337/42 Students** 👥
 
-1. **Creating the Signature File**:
-   - At the root of your Git repository, create a `signature.txt` file.
-   - Include the virtual machine disk signature in sha1 format (e.g., from a `.vdi` or `.qcow2` file). Use the following steps depending on your OS:
+#### **1. Submission** 📥
+- Submit a `signature.txt` file at the root of your Git repository.
+- Include the virtual disk signature (sha1 hash) of your machine.
 
-   **Windows**:
-   - Navigate to: `%HOMEDRIVE%%HOMEPATH%\VirtualBox VMs\`
-   - Execute the command: `certUtil -hashfile centos_serv.vdi sha1`
+#### **2. How to Get the Signature** 🔑
+- **Windows**: `%HOMEDRIVE%%HOMEPATH%\VirtualBox VMs\`
+  - Command: `certUtil -hashfile centos_serv.vdi sha1`
+  
+- **Linux**: `~/VirtualBox VMs/`
+  - Command: `sha1sum centos_serv.vdi`
+  
+- **Mac M1**: `~/Library/Containers/com.utmapp.UTM/Data/Documents/`
+  - Command: `shasum Centos.utm/Images/disk-0.qcow2`
+  
+- **MacOS**: `~/VirtualBox VMs/`
+  - Command: `shasum centos_serv.vdi`
 
-   **Linux**:
-   - Navigate to: `~/VirtualBox VMs/`
-   - Execute the command: `sha1sum centos_serv.vdi`
+#### **3. Example Output** 💻
+- **Output Format**: `6e657c4619944be17df3c31faa030c25e43e40af`
 
-   **Mac M1**:
-   - Navigate to: `~/Library/Containers/com.utmapp.UTM/Data/Documents/`
-   - Execute the command: `shasum Centos.utm/Images/disk-0.qcow2`
-
-   **MacOS**:
-   - Navigate to: `~/VirtualBox VMs/`
-   - Execute the command: `shasum centos_serv.vdi`
-
-2. **Evalknowledge.txt**:
-   - Includes a Q&A section with things to check as an evaluator.
-
-3. **Recommendation**:
-   - For better retention, repeat the installation steps multiple times, particularly if it's your first experience with Linux and virtual machines.
-
-
-**Recommendation**: 💡📌
-   - For better retention, repeat the installation steps multiple times, particularly if it's your first experience with Linux and virtual machines.
+#### **4. Evalknowledge.txt** 📄
+- Includes Q&A from the subject and evaluation checklist.
+  
+#### **5. Additional Tips** 📝
+- Repeat the installation process several times to reinforce your understanding, especially if this is your first experience with both Linux and virtualization.
 
