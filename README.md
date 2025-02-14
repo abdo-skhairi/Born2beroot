@@ -196,6 +196,25 @@ sudo crontab -u root -e
 */10 * * * * sh /path/to/script
 ```
 
+8.7 - Configuring Sudoers file, logs, warning message
+cd /var/log : Access the location where log files are stored, providing information about system events, services, processes.
+
+Each action using sudo has to be archived, both inputs and outputs. To do so, create a folder (name it sudo for clarity), then create a file.log, and save the path to that file.
+
+sudo vim /etc/sudoers or sudo visudo : Access the sudoers file responsible for defining the rules and permissions that determine which users or groups are allowed to execute commands with elevated privileges using the sudo command.
+
+Defaults	badpass_message="Wrong password, please try again!" : Adding warning message ****
+
+Defaults passwd_tries=3 : Sets a default value for the maximum number of password entry attempts allowed when a user runs sudo.
+
+Defaults	logfile="/var/log/sudo/sudo.log" : Sets the location for the sudo log file.
+
+Defaults	log_input, log_output : Enable logging of both input (commands typed by user) and output (result) for sudo commands.
+
+Defaults	requiretty : (teletypewriter) By requiring a TTY, it limits the ability of users to run sudo commands from scripts or automated processes by adding an extra layer of authentication ensuring that users physically present at the console are the ones executing privileged commands.
+
+
+
 ---
 
 ## 📊 **Create a Monitoring Script**  
