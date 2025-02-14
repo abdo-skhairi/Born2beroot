@@ -248,6 +248,90 @@ cat /var/log/sudo/sudo.log
 ```
 Now, you’ve got a rock-solid sudo logging system in place. 🔥 Whether you're securing your server or just flexing your sysadmin skills, this setup ensures **accountability, transparency, and total control** over sudo operations. 🚀
 ---
+### 🔐 **Implementing a Strong Password Policy in Born2beroot**  
+
+To enforce these password rules in **Debian (or similar Linux distributions)**, we will configure **PAM (Pluggable Authentication Modules)** and `/etc/login.defs`.
+
+---
+
+## **1️⃣ Configure Password Expiration Rules**
+Edit the `/etc/login.defs` file:  
+```bash
+sudo nano /etc/login.defs
+```
+Set the following values:  
+```ini
+PASS_MAX_DAYS   30     # Password expires every 30 days
+PASS_MIN_DAYS   2      # Minimum wait time before changing password again
+PASS_WARN_AGE   7      # Warn user 7 days before expiration
+```
+**Apply these rules to existing users:**  
+```bash
+sudo chage --maxdays 30 --mindays 2 --warndays 7 <username>
+```
+To verify the changes:  
+```bash
+sudo chage -l <username>
+```
+
+---
+
+## **2️⃣ Enforce Strong Password Complexity**
+Modify **PAM’s password quality module**:  
+```bash
+sudo nano /etc/security/pwquality.conf
+```
+Set the following rules:  
+```ini
+minlen = 10                        # Minimum length of 10 characters
+dcredit = -1                        # At least 1 digit
+ucredit = -1                        # At least 1 uppercase letter
+lcredit = -1                        # At least 1 lowercase letter
+maxrepeat = 3                       # No more than 3 identical consecutive characters
+usercheck = 1                       # Prevent username in password
+difok = 7                           # At least 7 new characters in the new password (except root)
+```
+
+---
+
+## **3️⃣ Ensure the Policy Applies to All Users**
+Edit PAM’s password authentication module:  
+```bash
+sudo nano /etc/pam.d/common-password
+```
+Find the line that starts with:  
+```
+password requisite pam_pwquality.so
+```
+Modify it to include our security rules:
+```ini
+password requisite pam_pwquality.so retry=3 minlen=10 dcredit=-1 ucredit=-1 lcredit=-1 maxrepeat=3 difok=7 enforce_for_root
+```
+This ensures:  
+✅ At least **one digit, one uppercase, and one lowercase letter**  
+✅ Minimum **10 characters**  
+✅ Prevents **more than 3 consecutive identical characters**  
+✅ At least **7 characters different from the old password**  
+✅ Enforced for **all users, including root**  
+
+---
+
+## **4️⃣ Testing the Password Policy**
+Try changing your password:  
+```bash
+passwd <your-username>
+```
+It should now **reject weak passwords** and enforce the new policy. 🚀  
+
+### **Extra: Lock Inactive Accounts for Extra Security**
+You can also lock accounts inactive for **30 days**:  
+```bash
+sudo usermod --inactive 30 <username>
+```
+
+---
+
+Now, your **Born2beroot** system has a solid password policy, keeping it secure against weak credentials. 🔒🔥
 
 ## 📊 **Create a Monitoring Script**  
 ```bash
